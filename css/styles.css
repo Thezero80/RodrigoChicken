@@ -1,0 +1,150 @@
+/* Variables de Color */
+:root {
+    --primary-red: #d32f2f;
+    --accent-yellow: #fbc02d;
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --text-light: #f5f5f5;
+    --whatsapp-green: #25D366;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between;
+    align-items: center; padding: 20px 50px; background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px); z-index: 1000; transition: 0.3s;
+}
+header.sticky { padding: 10px 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+/* Estilos para el nuevo Logo en imagen */
+.logo a { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+}
+
+.logo-img {
+    max-height: 60px; /* Altura ideal para la barra de PC */
+    width: auto;      /* Mantiene la proporción original */
+    border-radius: 8px; /* Opcional: suaviza un poco las esquinas del cuadro blanco */
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Pequeño efecto al pasar el mouse */
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 768px) {
+    .logo-img { 
+        max-height: 45px; /* Se hace un poco más pequeño en móviles */
+    }
+}
+.logo span { color: var(--text-light); }
+.loguito h3 { font-family: var(--font-heading); color: var(--accent-yellow); font-weight: 900; text-transform: uppercase; }
+.loguito span { color: var(--text-light); }
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent-yellow); }
+
+.btn-cta, .btn-primary, .btn-secondary {
+    padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: 0.3s transform, 0.3s background; cursor: pointer; border: none; font-family: var(--font-body);
+}
+.btn-cta { background-color: var(--primary-red); color: white; }
+.btn-cta:hover { background-color: #b71c1c; transform: scale(1.05); }
+.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+/* Hero */
+.hero {
+    height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('fondo-pollo.jpg') center/cover; padding: 0 20px;
+}
+.hero-content h1 { font-family: var(--font-heading); font-size: 4rem; color: var(--accent-yellow); margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+.btn-primary { background-color: var(--whatsapp-green); color: white; margin-right: 15px; }
+.btn-primary:hover { background-color: #1ebe57; transform: translateY(-3px); }
+.btn-secondary { border: 2px solid var(--accent-yellow); color: var(--accent-yellow); background: transparent; }
+.btn-secondary:hover { background: var(--accent-yellow); color: var(--dark-bg); transform: translateY(-3px); }
+
+/* Generales */
+.section-title { text-align: center; font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 50px; }
+.section-title span { color: var(--primary-red); }
+
+/* Menú y Carrito */
+.menu-section { padding: 80px 5%; background-color: var(--darker-bg); }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.menu-category { background: #1e1e1e; padding: 30px; border-radius: 15px; border-top: 4px solid var(--primary-red); transition: transform 0.3s; }
+.menu-category:hover { transform: translateY(-5px); }
+.menu-category h3 { font-family: var(--font-heading); color: var(--accent-yellow); margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.menu-category h3.highlight { color: var(--primary-red); background: rgba(211, 47, 47, 0.1); padding: 10px; border-radius: 5px; border: none; }
+
+.menu-item {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 1.1rem; border-bottom: 1px dashed #444; padding-bottom: 10px;
+}
+.item-details { flex: 1; display: flex; flex-direction: column; }
+.item-details span:first-child { line-height: 1.2; }
+.item-details .price { font-weight: bold; color: var(--accent-yellow); margin-top: 5px; }
+.menu-item small { display: block; font-size: 0.8rem; color: #aaa; margin-top: 2px; }
+
+/* Botones de cantidad del carrito */
+.item-actions { display: flex; align-items: center; gap: 10px; background: #2a2a2a; border-radius: 20px; padding: 3px 8px; margin-left: 15px; }
+.btn-qty { background: none; border: none; color: var(--text-light); font-size: 1.2rem; cursor: pointer; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+.btn-qty:hover { color: var(--accent-yellow); }
+.qty-display { font-weight: bold; font-size: 1rem; width: 15px; text-align: center; }
+
+/* Botón flotante del Carrito */
+.cart-floating-btn {
+    position: fixed; bottom: 30px; right: 30px; background: var(--primary-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.5); cursor: pointer; z-index: 1001; transition: 0.3s;
+}
+.cart-floating-btn:hover { background: #b71c1c; transform: scale(1.05); }
+.cart-count { position: absolute; top: 0; right: 0; background: var(--accent-yellow); color: var(--dark-bg); font-size: 0.9rem; font-weight: bold; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+/* Modal del Pedido */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 2000;
+}
+.modal-content {
+    background: #1e1e1e; width: 90%; max-width: 450px; border-radius: 15px; padding: 30px; position: relative; border-top: 5px solid var(--accent-yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; color: #888; cursor: pointer; transition: 0.2s; }
+.close-modal:hover { color: var(--primary-red); }
+.modal-content h2 { font-family: var(--font-heading); margin-bottom: 20px; color: var(--text-light); text-align: center; }
+.order-items { max-height: 250px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; }
+.order-items::-webkit-scrollbar { width: 5px; }
+.order-items::-webkit-scrollbar-thumb { background: #555; border-radius: 5px; }
+.modal-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+.modal-item strong { color: var(--accent-yellow); }
+.order-summary { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; color: white; }
+.btn-whatsapp-order { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.1rem; padding: 15px; background: var(--whatsapp-green); color: white; }
+.btn-whatsapp-order:hover { background: #1ebe57; transform: translateY(-2px); }
+
+/* Reseñas y Footer */
+.reviews-section { padding: 80px 5%; background: var(--dark-bg); }
+.reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.review-card { background: #1e1e1e; padding: 25px; border-radius: 10px; text-align: center; }
+.stars { color: var(--accent-yellow); margin-bottom: 15px; }
+.review-card h4 { margin-top: 15px; color: var(--primary-red); }
+
+footer { background: #000; padding: 50px 5% 20px; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; text-align: center; }
+.footer-delivery p { font-size: 1.2rem; font-weight: bold; color: var(--accent-yellow); }
+.footer-bottom { text-align: center; border-top: 1px solid #333; padding-top: 20px; font-size: 0.9rem; color: #888; }
+
+@media (max-width: 768px) {
+    .nav-links, header .btn-cta { display: none; }
+    .menu-toggle { display: block; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
+    .btn-primary { margin-right: 0; }
+    header { padding: 15px 20px; }
+}
